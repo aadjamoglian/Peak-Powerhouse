@@ -23,7 +23,7 @@ The default is...
 &emsp;mysql.connector or mysql.connector.python\
 &emsp;dotenv
 
-5 - Run the script
+5 - Run the script in terminal
 
     python run_python_crud.py
 
