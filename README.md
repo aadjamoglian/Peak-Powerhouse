@@ -11,7 +11,7 @@ The default is...
 &emsp;username: root,
 &emsp;and no password.
 
-3 - Set up virtual environment, run the following code below in terminal (windows) *Make sure you are in the project folder*:
+3 - Set up virtual environment, run the following code below in terminal (windows)\ *Make sure you are in the project folder*:
 
     python -m venv .venv
     .venv\Scripts\Activate.ps1
