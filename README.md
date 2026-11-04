@@ -3,12 +3,12 @@ An RDMS solution for a mid sized fitness organization implemented using python a
 
 # Installation Instructions
 1 - Generate .env file in project folder containing the following:\
-    &emspDB_HOST=your_host\
-    &emspDB_USERNAME=your_username\
-    &emspDB_PASSWORD=your_password\
-    &emspDB_NAME=your_db
+    &emsp;DB_HOST=your_host\
+    &emsp;pDB_USERNAME=your_username\
+    &emsp;DB_PASSWORD=your_password\
+    &emsp;DB_NAME=your_db
 
 2 - Set up virtual environment, activate, then install the following modules:\
-    &emspmysql.connector\
-    &emspdotenv
+    &emsp;mysql.connector\
+    &emsp;dotenv
 
