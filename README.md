@@ -11,12 +11,11 @@ The default is...
 &emsp;username: root,
 &emsp;and no password.
 
-3 - Set up virtual environment, activate, then install the following modules:\
+3 - Set up virtual environment, run the following code below in terminal (windows):
 
     python -m venv .venv
+    .venv\Scripts\Activate.ps1
 
-    &emsp;mysql.connector\
-    &emsp;dotenv
 
 4 - 
 
