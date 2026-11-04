@@ -23,7 +23,7 @@ The default is...
 
 5 - Run the script
 
-    python 
+    python run_python_crud.py
 
 
 
