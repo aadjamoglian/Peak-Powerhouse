@@ -23,12 +23,98 @@ class PeakPowerhouseQueries(object):
         """Get all locations from peak powerhouse gym"""
         
         sql = """
-        select * from locations
+        select * from locations;
         """
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
         self.cursor.close()
         return results
+
+    def get_all_members(self):
+        """Get all members across gyms member id, first name and last name"""
+
+        sql = """
+        select member_id, member_fname, member_lname from members;
+        """
+
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        self.cursor.close()
+        return results
+
+    def get_all_memberships(self):
+        """Get all memberships"""
+
+        sql = """
+        select * from memberships;
+        """
+
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        self.cursor.close()
+        return results
+
+    def get_all_employees(self):
+        """Get all employees employee id, first name, last name, phone, email"""
+
+        sql = """
+        select employee_id, employee_fname, employee_lname, employee_phone, employee_email
+        from employees;
+        """
+
+        self.curor.execute(sql)
+        results = self.cursor.fetchall()
+        self.cursor.close()
+        return results
+
+    def get_all_roles(self):
+        """Get all roles"""
+
+        sql = """
+        select * from roles;
+        """
+
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        self.cursor.close()
+        return results
+
+    def get_all_sales(self):
+        """Get all sales records"""
+
+        sql = """
+        select * from sales;
+        """
+
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        self.cursor.close()
+        return results
+
+    def get_all_sales_details:
+        """Get all sales details records"""
+
+        sql = """
+        select * from sales_details
+        """
+
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        return results
+
+    def get_all_products:
+        """Get all products"""
+
+        sql = """
+        select * from products;
+        """
+
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        self.cursor.close()
+        return results
+
+    
 
     

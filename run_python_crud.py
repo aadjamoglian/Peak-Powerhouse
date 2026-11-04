@@ -19,9 +19,22 @@ cursor = conn.cursor()
 
 q = PeakPowerhouseQueries(cursor, conn)
 
-# Print statements for all table selects
+# Print table selects
 print(q.get_all_locations())
 
+print(q.get_all_members())
+
+print(q.get_all_memberships())
+
+print(q.get_all_employees())
+
+print(q.get_all_roles())
+
+print(q.get_all_sales())
+
+print(q.get_all_sales_details())
+
+print(q.get_all_products())
 
 cursor.close()
 conn.close()
