@@ -1,7 +1,7 @@
 # Peak-Powerhouse
 An RDMS solution for a mid sized fitness organization implemented using python and MySQL.
 
-# Installation & Run Instructions
+## Installation & Run Instructions
 1 - Rename example.env file to .env
 
 2 - Now double check the values for host, username, and password in the newly renamed .env file.
