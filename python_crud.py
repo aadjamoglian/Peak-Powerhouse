@@ -63,7 +63,7 @@ class PeakPowerhouseQueries(object):
         from employees;
         """
 
-        self.curor.execute(sql)
+        self.cursor.execute(sql)
         results = self.cursor.fetchall()
         self.cursor.close()
         return results
@@ -92,7 +92,7 @@ class PeakPowerhouseQueries(object):
         self.cursor.close()
         return results
 
-    def get_all_sales_details:
+    def get_all_sales_details(self):
         """Get all sales details records"""
 
         sql = """
@@ -103,7 +103,7 @@ class PeakPowerhouseQueries(object):
         results = self.cursor.fetchall()
         return results
 
-    def get_all_products:
+    def get_all_products(self):
         """Get all products"""
 
         sql = """
