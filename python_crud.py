@@ -1,4 +1,4 @@
-""" CS340 Python CRUD Assignment Template File
+""" CS340 Design Python Class Application
 -- Name: Arthur Adjamoglian & Min Deng
 -- Citation for the following code: Starter code provided from Pyton CRUD Query App Assignment.
 -- No AI was used in completion of this assignment. All work is original.

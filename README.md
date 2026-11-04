@@ -12,3 +12,6 @@ An RDMS solution for a mid sized fitness organization implemented using python a
     &emsp;mysql.connector\
     &emsp;dotenv
 
+-- Citation for the following code: Starter code provided from Pyton CRUD Query App Assignment.
+-- No AI was used in completion of this assignment. All work is original.
+
