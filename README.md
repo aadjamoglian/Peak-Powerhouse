@@ -19,7 +19,8 @@ The default is...
 
 
 4 - Use pip and install the following modules:
-&emsp;mysql.connector or mysql.connector.python
+
+&emsp;mysql.connector or mysql.connector.python\
 &emsp;dotenv
 
 5 - Run the script
