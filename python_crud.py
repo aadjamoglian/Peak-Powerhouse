@@ -28,7 +28,6 @@ class PeakPowerhouseQueries(object):
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
-        self.cursor.close()
         return results
 
     def get_all_members(self):
@@ -40,7 +39,6 @@ class PeakPowerhouseQueries(object):
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
-        self.cursor.close()
         return results
 
     def get_all_memberships(self):
@@ -52,7 +50,6 @@ class PeakPowerhouseQueries(object):
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
-        self.cursor.close()
         return results
 
     def get_all_employees(self):
@@ -65,7 +62,6 @@ class PeakPowerhouseQueries(object):
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
-        self.cursor.close()
         return results
 
     def get_all_roles(self):
@@ -77,7 +73,6 @@ class PeakPowerhouseQueries(object):
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
-        self.cursor.close()
         return results
 
     def get_all_sales(self):
@@ -89,7 +84,6 @@ class PeakPowerhouseQueries(object):
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
-        self.cursor.close()
         return results
 
     def get_all_sales_details(self):
@@ -112,7 +106,6 @@ class PeakPowerhouseQueries(object):
 
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
-        self.cursor.close()
         return results
 
     
