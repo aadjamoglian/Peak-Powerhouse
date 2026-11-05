@@ -108,6 +108,32 @@ class PeakPowerhouseQueries(object):
         results = self.cursor.fetchall()
         return results
 
-    
+    def add_sales_detail(self, transaction_id, product_id, quantity):
+        """Add a product to a sale and return the new sales_details_id."""
+        sql = """
+            INSERT INTO sales_details(sales_transaction_id, products_product_id, quantity)
+            VALUES (%s, %s, %s);
+        """
+        self.cursor.execute(sql, (transaction_id, product_id, quantity))
+        self._commit()
+        return self.cursor.lastrowid
+
+    def update_sales_detail_quantity(self, details_id, new_quantity):
+        """Update the quantity of a sales detail."""
+        sql = """
+            sql = "UPDATE sales_details SET quantity=%s WHERE sales_details_id=%s;"
+        """
+        self.cursor.execute(sql, (new_quantity, details_id))
+        self._commit()
+        return self.cursor.rowcount
+
+    def delete_sales_detail(self, details_id):
+        """Delete a sales detail by its ID."""
+        sql = """
+            sql = "DELETE FROM sales_details WHERE sales_details_id=%s;"
+        """
+        self.cursor.execute(sql, (details_id,))
+        self._commit()
+        return self.cursor.rowcount
 
     
