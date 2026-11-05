@@ -121,7 +121,9 @@ class PeakPowerhouseQueries(object):
     def update_sales_detail_quantity(self, details_id, new_quantity):
         """Update the quantity of a sales detail."""
         sql = """
-            sql = "UPDATE sales_details SET quantity=%s WHERE sales_details_id=%s;"
+            UPDATE sales_details
+            SET quantity = %s
+            WHERE sales_details_id = %s;
         """
         self.cursor.execute(sql, (new_quantity, details_id))
         self._commit()
@@ -130,7 +132,8 @@ class PeakPowerhouseQueries(object):
     def delete_sales_detail(self, details_id):
         """Delete a sales detail by its ID."""
         sql = """
-            sql = "DELETE FROM sales_details WHERE sales_details_id=%s;"
+            DELETE FROM sales_details
+            WHERE sales_details_id = %s;
         """
         self.cursor.execute(sql, (details_id,))
         self._commit()
