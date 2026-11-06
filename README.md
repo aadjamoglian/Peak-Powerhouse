@@ -39,7 +39,8 @@ The default settings are:
 For Windows:
 
     python -m venv .venv
-    .venv\Scripts\Activate.ps1
+    .venv\Scripts\Activate.ps1   (windows)
+    source .venv/bin/activate   (mac)
 
 For MacOS:
 
@@ -52,6 +53,9 @@ For MacOS:
 
 
 ## Database Setup
+4 - Run this script using pip to intall required modules:
+
+    pip install -r requirements.txt
 
 1 - Create a MySQL database named peak_ph_db.
 
