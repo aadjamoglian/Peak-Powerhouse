@@ -1,35 +1,91 @@
 # Peak-Powerhouse
-An RDMS solution for a mid sized fitness organization implemented using python and MySQL.
 
-## Installation & Run Instructions
-1 - Rename example.env file to .env
+## Project Description
 
-2 - Now double check the values for host, username, and password in the newly renamed .env file.
+Peak Powerhouse is a gym database management system built with MySQL and Python. It stores information about gym locations, employees, members, memberships, products, and sales.
 
-The default is...
-&emsp;host: localhost,
-&emsp;username: root,
-&emsp;and no password.
+The Python application allows users to view records from all tables and add, update, or delete records in the sales_details table.
 
-3 - Set up virtual environment, run the following code below in terminal (windows). 
+## Authors
+Arthur Adjamoglian  
+Min Deng  
+
+CS340 - Group 3
+
+## Project Files
+
+- `peak_powerhouse_ddl.sql` - Creates the database tables and loads sample data.
+- `peak_ph_db_queries.sql` - Contains the SQL queries.
+- `python_crud.py` - Contains the Python database class.
+- `run_python_crud.py` - Tests the database operations.
+- `CLI_OUT.txt` - Shows the test results.
+
+
+## Installation Instructions
+
+1 - Rename `example.env` to `.env`.
+
+2 - Open the .env file and check the host, username, and password. Update them to match your local MySQL settings.
+
+The default settings are:
+- Host: localhost
+- Username: root
+- Password: (empty)
+- Database: peak_ph_db
+
+3 - Set up virtual environment, run the following code below in terminal. 
 *Make sure you are in the project folder*:
+
+For Windows:
 
     python -m venv .venv
     .venv\Scripts\Activate.ps1   (windows)
     source .venv/bin/activate   (mac)
 
+For MacOS:
 
+    python3 -m venv .venv
+    source .venv/bin/activate
+
+4 - Use pip and install the following packages:
+
+    pip install mysql-connector-python python-dotenv
+
+
+## Database Setup
 4 - Run this script using pip to intall required modules:
 
     pip install -r requirements.txt
 
-5 - Run the script in terminal
+1 - Create a MySQL database named peak_ph_db.
+
+2 - Import peak_powerhouse_ddl.sql into the database using MySQL Workbench.
+
+3 - The database should include sample data for testing.
+
+
+## Run the Application
+
+Run the following command in terminal:
 
     python run_python_crud.py
 
 
+## Expected Output
 
--- Citation for the following code: Starter code provided from Pyton CRUD Query App Assignment.  
+The program prints data from all 8 tables.
 
--- No AI was used in completion of this assignment. All work is original.
+It also shows the results of adding, updating, and deleting a record in the sales_details table.
+
+The test output is included in CLI_OUT.txt.
+
+
+
+## Acknowledgements
+
+- Some code was based on the starter code from the CS340 Python CRUD Query App Assignment.
+
+- The database design and project code were created by Arthur Adjamoglian and Min Deng.
+
+- No AI was used in this assignment. All work is original.
 
