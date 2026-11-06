@@ -39,29 +39,23 @@ The default settings are:
 For Windows:
 
     python -m venv .venv
-    .venv\Scripts\Activate.ps1   (windows)
-    source .venv/bin/activate   (mac)
+    .venv\Scripts\Activate.ps1
 
 For MacOS:
 
     python3 -m venv .venv
     source .venv/bin/activate
 
-4 - Use pip and install the following packages:
-
-    pip install mysql-connector-python python-dotenv
-
-
-## Database Setup
 4 - Run this script using pip to intall required modules:
 
     pip install -r requirements.txt
 
-1 - Create a MySQL database named peak_ph_db.
+## Database Setup
+5 - Create a MySQL database named peak_ph_db.
 
-2 - Import peak_powerhouse_ddl.sql into the database using MySQL Workbench.
+6 - Import peak_powerhouse_ddl.sql into the database using MySQL Workbench.
 
-3 - The database should include sample data for testing.
+7 - The database should include sample data for testing.
 
 
 ## Run the Application
