@@ -15,13 +15,13 @@ The default is...
 *Make sure you are in the project folder*:
 
     python -m venv .venv
-    .venv\Scripts\Activate.ps1
+    .venv\Scripts\Activate.ps1   (windows)
+    source .venv/bin/activate   (mac)
 
 
-4 - Use pip and install the following modules:
+4 - Run this script using pip to intall required modules:
 
-&emsp;mysql.connector.python\
-&emsp;dotenv
+    pip install -r requirements.txt
 
 5 - Run the script in terminal
 
