@@ -22,7 +22,7 @@ USE `peak_ph_db` ;
 
 -- Create tables
 
------------------------------------------------------
+-- ---------------------------------------------------
 -- Table `peak_ph_db`.`locations`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `peak_ph_db`.`locations` ;
@@ -199,7 +199,7 @@ ENGINE = InnoDB;
 
 -- Generate all the example data
 
------------------------------------------------------
+-- ---------------------------------------------------
 -- Inserts for  `peak_ph_db`.`locations`
 -- -----------------------------------------------------
 INSERT INTO `peak_ph_db`.`locations` (location_address)
