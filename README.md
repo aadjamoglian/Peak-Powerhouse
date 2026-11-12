@@ -19,9 +19,50 @@ CS340 - Group 3
 - `python_crud.py` - Contains the Python database class.
 - `run_python_crud.py` - Tests the database operations.
 - `CLI_OUT.txt` - Shows the test results.
+- `python_quick_install.py` - Contains code to simplify installation process
+- `requirements.txt` - Modules needed for install
+
+## Quick Installation Instructions
+1 - Rename `example.env` to `.env`.
+
+2 - Open the .env file and check the host, username, and password. Update them to match your local MySQL settings.
+
+The default settings are:
+- Host: localhost
+- Username: root
+- Password: (empty)
+- Database: peak_ph_db
+
+3 - Open terminal in project folder, then run python_quick_install.py using the following command:
+
+For Windows:
+
+    python python_quick_install.py
+
+For MacOS:
+
+    python3 python_quick_install.py
+
+This will set up virtual environment, install modules, create database and load ddl.
+
+4 - Activate virtual environment:
+
+For Windows:
+
+    .venv\Scripts\Activate.ps1
+
+For MacOS:
+
+    source .venv/bin/activate
+
+## Run the Application
+
+Run the following command in terminal:
+
+    python run_python_crud.py
 
 
-## Installation Instructions
+## Step-by-Step Installation Instructions
 
 1 - Rename `example.env` to `.env`.
 
@@ -51,11 +92,11 @@ For MacOS:
     pip install -r requirements.txt
 
 ## Database Setup
-5 - Create a MySQL database named peak_ph_db.
+5 - Create a MySQL database named peak_ph_db
 
-6 - Import peak_powerhouse_ddl.sql into the database using MySQL Workbench.
+6 - Import peak_powerhouse_ddl.sql into the database using MySQL Workbench
 
-7 - The database should include sample data for testing.
+7 - The database should include sample data for testing
 
 
 ## Run the Application
