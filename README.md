@@ -33,17 +33,17 @@ The default settings are:
 - Password: (empty)
 - Database: peak_ph_db
 
-3 - Open terminal in project folder, then run python_quick_install.py using the following command:
+3 - Open terminal in project folder, then run python_quick_install_modules.py using the following command:
 
 For Windows:
 
-    python python_quick_install.py
+    python python_quick_install_modules.py
 
 For MacOS:
 
-    python3 python_quick_install.py
+    python3 python_quick_install_modules.py
 
-This will set up virtual environment, install modules, create database and load ddl.
+This will set up virtual environment, and install modules.
 
 4 - Activate virtual environment:
 
@@ -54,6 +54,19 @@ For Windows:
 For MacOS:
 
     source .venv/bin/activate
+
+5 - Run python_quick_install_ddl.py using the following command:
+
+For Windows:
+
+    python python_quick_install_ddl.py
+
+For MacOS:
+
+    python3 python_quick_install_ddl.py
+
+This will load the database.
+
 
 ## Run the Application
 
