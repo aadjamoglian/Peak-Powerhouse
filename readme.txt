@@ -86,7 +86,6 @@ The default settings are:
 - Host: localhost
 - Username: root
 - Password: (empty)
-- Database: peak_ph_db
 
 3 - Set up virtual environment, run the following code below in terminal. 
 *Make sure you are in the project folder*:
