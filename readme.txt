@@ -32,7 +32,6 @@ The default settings are:
 - Host: localhost
 - Username: root
 - Password: (empty)
-- Database: peak_ph_db
 
 3 - Open terminal in project folder, then run python_quick_install_modules.py using the following command:
 
