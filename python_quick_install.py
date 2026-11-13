@@ -1,9 +1,6 @@
 import subprocess
 import sys
 import platform
-import mysql.connector
-
-
 
 # Get OS name
 os_name = platform.system()
@@ -33,10 +30,12 @@ subprocess.run(
 
 print("Modules installed successfully!")
 
-# Load username and password from .env file
-load_dotenv()
 from dotenv import load_dotenv
 import os
+import mysql.connector
+
+# Load username and password from .env file
+load_dotenv()
 
 # Connect to MySQL server
 conn = mysql.connector.connect(
