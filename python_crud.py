@@ -108,6 +108,19 @@ class PeakPowerhouseQueries(object):
         results = self.cursor.fetchall()
         return results
 
+    def get_sales_by_location(self):
+        """Get sales by location"""
+
+        sql = """
+        select location_id, location_address, SUM(sale_total)
+        from locations
+        left join sales on locations.location_id = sales.locations_location_id
+        group by location_id
+        """
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        return results
+
     def add_sales_detail(self, transaction_id, product_id, quantity):
         """Add a product to a sale and return the new sales_details_id."""
         sql = """

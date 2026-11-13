@@ -44,6 +44,10 @@ print(q.get_all_sales_details())
 print("\n=== Products ===")
 print(q.get_all_products())
 
+print("\n=== Multi-Table Queries ===")
+print("\n--- Sales By Location ---")
+print(q.get_sales_by_location())
+
 # There is a unique constraint for a sale and a product in the sales details table
 # A product id may appear only once for an order, multiples of the product are handled
 # with quantity parameter.
