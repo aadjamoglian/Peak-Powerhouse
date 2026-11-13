@@ -19,7 +19,8 @@ CS340 - Group 3
 - `python_crud.py` - Contains the Python database class.
 - `run_python_crud.py` - Tests the database operations.
 - `CLI_OUT.txt` - Shows the test results.
-- `python_quick_install.py` - Contains code to simplify installation process
+- `python_quick_install_modules.py` - Installs modules and virtual environment
+- `python_quick_install_ddl.py` - Loads database
 - `requirements.txt` - Modules needed for install
 
 ## Quick Installation Instructions
@@ -100,7 +101,7 @@ For MacOS:
     python3 -m venv .venv
     source .venv/bin/activate
 
-4 - Run this script using pip to intall required modules:
+4 - Run this script using pip to install required modules:
 
     pip install -r requirements.txt
 
