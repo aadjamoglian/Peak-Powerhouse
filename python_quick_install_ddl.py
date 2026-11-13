@@ -30,6 +30,8 @@ for query in queries:
 
     cursor.execute(query_stripped)
 
+conn.commit()
+
 cursor.close()
 conn.close()
 
