@@ -16,6 +16,7 @@ cursor = conn.cursor()
 
 # Create database if it doesn't exist
 cursor.execute("CREATE DATABASE IF NOT EXISTS peak_ph_db")
+
 cursor.execute("USE peak_ph_db")
 
 # Run DDL script
