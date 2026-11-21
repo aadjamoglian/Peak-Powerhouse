@@ -23,6 +23,25 @@ CS340 - Group 3
 - `python_quick_install_ddl.py` - Loads database
 - `requirements.txt` - Modules needed for install
 
+## The Super Fast Installation Instructions
+1 - Rename `example.env` to `.env`.
+
+2 - Open terminal in project folder, then run python_quick_install_modules.py using the following command:
+
+For Windows:
+
+    .\peak_powerhouse_install.ps1
+
+For MacOS:
+
+    ./peak_powerhouse_install.sh
+
+## Run the Application
+
+Run the following command in terminal:
+
+    python peak_cli.py
+
 ## Quick Installation Instructions
 1 - Rename `example.env` to `.env`.
 
@@ -72,7 +91,7 @@ This will load the database.
 
 Run the following command in terminal:
 
-    python run_python_crud.py
+    python peak_cli.py
 
 
 ## Step-by-Step Installation Instructions
@@ -115,7 +134,7 @@ For MacOS:
 
 Run the following command in terminal:
 
-    python run_python_crud.py
+    python peak_cli.py
 
 
 ## Expected Output
