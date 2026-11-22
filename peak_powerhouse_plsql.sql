@@ -284,5 +284,32 @@ BEGIN
 
     SELECT LAST_INSERT_ID() INTO sales_details_id;
 END //
+
+############################################
+## UPDATE SALES DETAILS
+############################################
+DROP PROCEDURE IF EXISTS sp_UpdateSalesDetailsQuantity//
+CREATE PROCEDURE sp_UpdateSalesDetailsQuantity(
+    IN details_id INT,
+    IN new_quantity INT
+)
+BEGIN
+    UPDATE sales_details
+    SET quantity = new_quantity
+    where sales_details_id = details_id;
+END //
+
+############################################
+## DELETE SALES DETAILS
+############################################
+DROP PROCEDURE IF EXISTS sp_DeleteSalesDetails//
+CREATE PROCEDURE sp_DeleteSalesDetails(
+    IN details_id INT
+)
+BEGIN
+    DELETE FROM sales_details
+    WHERE sales_details_id = details_id;
+END //
+
 DELIMITER ;
 

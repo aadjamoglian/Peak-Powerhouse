@@ -31,7 +31,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "DDL Loaded To DB! (3/3)"
+echo "DDL and Stored Procedures Loaded To DB! (3/3)"
 
 echo "Installation has completed successfully!"
 

@@ -145,24 +145,39 @@ class PeakPowerhouseQueries(object):
         self._commit()
         return 1 if new_id else 0
 
+    # Old update sales quantity before stored procedure
+    # def update_sales_detail_quantity(self, details_id, new_quantity):
+    #     """Update the quantity of a sales detail."""
+    #     sql = """
+    #         UPDATE sales_details
+    #         SET quantity = %s
+    #         WHERE sales_details_id = %s;
+    #     """
+    #     self.cursor.execute(sql, (new_quantity, details_id))
+    #     self._commit()
+    #     return self.cursor.rowcount
 
     def update_sales_detail_quantity(self, details_id, new_quantity):
         """Update the quantity of a sales detail."""
-        sql = """
-            UPDATE sales_details
-            SET quantity = %s
-            WHERE sales_details_id = %s;
-        """
-        self.cursor.execute(sql, (new_quantity, details_id))
+        sql = "CALL sp_UpdateSalesDetailsQuantity(%s, %s)"
+        self.cursor.execute(sql, (details_id, new_quantity))
         self._commit()
         return self.cursor.rowcount
 
+    # Old version
+    # def delete_sales_detail(self, details_id):
+    #     """Delete a sales detail by its ID."""
+    #     sql = """
+    #         DELETE FROM sales_details
+    #         WHERE sales_details_id = %s;
+    #     """
+    #     self.cursor.execute(sql, (details_id,))
+    #     self._commit()
+    #     return self.cursor.rowcount
+
     def delete_sales_detail(self, details_id):
         """Delete a sales detail by its ID."""
-        sql = """
-            DELETE FROM sales_details
-            WHERE sales_details_id = %s;
-        """
+        sql = "CALL sp_DeleteSalesDetails(%s)"
         self.cursor.execute(sql, (details_id,))
         self._commit()
         return self.cursor.rowcount
