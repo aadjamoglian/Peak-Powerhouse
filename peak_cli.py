@@ -103,6 +103,22 @@ def main():
                 print("Invalid option...")
                 print("Returing to main menu.")
 
+        elif choice == "2":
+            sales = q.get_all_sales()
+            print("\nTransactions Ids:")
+            for sale in sales:
+                print(sale[0])
+            transaction_id = input("\nEnter transaction id to add sales details for: ")
+
+            products = q.get_all_products()
+            print("\nProducts: ")
+            for product in products:
+                print(f"{product[0]} - {product[1]} ({product[2]}), Price: {product[3]}, Cost: {product[4]}")
+            product_id = input("\nEnter product id to add product to sales details: ")
+
+            quantity = input("\nEnter quantity for product to be added: ")
+            q.add_sales_detail(transaction_id, product_id, quantity)
+
 
         elif choice == "4":
             print("\nSaved Query Options")
