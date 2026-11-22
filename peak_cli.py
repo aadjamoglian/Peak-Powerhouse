@@ -11,7 +11,8 @@ def print_menu():
     print("1. View Tables")
     print("2. Insert Sales Details")
     print("3. Update Sales Details")
-    print("4. Other Saved Queries")
+    print("4. Delete Sales Details")
+    print("5. Other Saved Queries")
 
 
     print("0. Exit")
@@ -119,8 +120,24 @@ def main():
             quantity = input("\nEnter quantity for product to be added: ")
             q.add_sales_detail(transaction_id, product_id, quantity)
 
+        elif choice == "3":
+            sales_details = q.get_all_sales_details()
+            print()
+            for sales_detail in sales_details:
+                print(sales_detail)
+            update_id = input("\nEnter Sales Details Id to update quantity for: ")
+            quantity = input("\nEnter new quantity: ")
+            q.update_sales_detail_quantity(update_id, quantity)
 
         elif choice == "4":
+            sales_details = q.get_all_sales_details()
+            print()
+            for sales_detail in sales_details:
+                print(sales_detail)
+            delete_id = input("\nEnter Sales Detiails Id to delete: ")
+            q.delete_sales_detail(delete_id)
+
+        elif choice == "5":
             print("\nSaved Query Options")
             print_saved_queries()
             print("0. Exit")
