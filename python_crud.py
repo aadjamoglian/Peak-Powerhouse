@@ -121,15 +121,30 @@ class PeakPowerhouseQueries(object):
         results = self.cursor.fetchall()
         return results
 
+    # Old method before stored procedure
+    # def add_sales_detail(self, transaction_id, product_id, quantity):
+    #     """Add a product to a sale and return the new sales_details_id."""
+    #     sql = """
+    #         INSERT INTO sales_details(sales_transaction_id, products_product_id, quantity)
+    #         VALUES (%s, %s, %s);
+    #     """
+    #     self.cursor.execute(sql, (transaction_id, product_id, quantity))
+    #     self._commit()
+    #     return self.cursor.lastrowid
+
     def add_sales_detail(self, transaction_id, product_id, quantity):
         """Add a product to a sale and return the new sales_details_id."""
-        sql = """
-            INSERT INTO sales_details(sales_transaction_id, products_product_id, quantity)
-            VALUES (%s, %s, %s);
-        """
-        self.cursor.execute(sql, (transaction_id, product_id, quantity))
+        sql = "CALL sp_AddSalesDetails(%s, %s, %s, @new_id)"
+        cursor.execute(sql, (transaction_id, product_id, quantity))
+        # Drain pending result sets
+        while cursor.nextset():
+            pass
+        cursor.execute("SELECT @new_id")
+        new_id = cursor.fetchone()[0]
+
         self._commit()
-        return self.cursor.lastrowid
+        return 1 if new_id else 0
+
 
     def update_sales_detail_quantity(self, details_id, new_quantity):
         """Update the quantity of a sales detail."""

@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import os
 import mysql.connector
+import subprocess
 
 # Load username and password from .env file
 load_dotenv()
@@ -22,6 +23,29 @@ cursor.execute("USE peak_ph_db")
 # Run DDL script
 with open("peak_powerhouse_ddl.sql", "r", encoding="utf-8") as file:
     script = file.read()
+
+queries = script.split(";")
+
+for query in queries:
+    query_stripped = query.strip();
+
+    cursor.execute(query_stripped)
+
+conn.commit()
+
+with open("peak_powerhouse_plsql.sql", "r") as sql_file:
+    result = subprocess.run(
+        [
+            "mysql",
+            "-h", os.getenv('DB_HOST'),
+            "-u", os.getenv('DB_USERNAME'),
+            "-p" + os.getenv('DB_PASSWORD'),
+            "peak_ph_db"
+        ],
+        stdin=sql_file,
+        text=True
+
+    )
 
 queries = script.split(";")
 

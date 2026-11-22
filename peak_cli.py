@@ -13,8 +13,6 @@ def print_menu():
     print("3. Update Sales Details")
     print("4. Delete Sales Details")
     print("5. Other Saved Queries")
-
-
     print("0. Exit")
 
 def print_view_table_menu():
