@@ -34,3 +34,8 @@ fi
 echo "DDL Loaded To DB! (3/3)"
 
 echo "Installation has completed successfully!"
+
+echo "Initiating program now..."
+
+# Load DDL into database
+python3 "./peak_cli.py"

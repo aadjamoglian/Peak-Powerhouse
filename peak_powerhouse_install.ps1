@@ -6,5 +6,6 @@ Write-Host "Virtual environment activated! (2/3)"
 python ".\python_quick_install_ddl.py"
 Write-Host "DDL Loaded To DB! (3/3)"
 Write-Host "Installation has completed successfully!"
-
+Write-Host "Initiating program now..."
+python ".\peak_cli.py"
 

@@ -22,6 +22,38 @@ CS340 - Group 3
 - `python_quick_install_modules.py` - Installs modules and virtual environment
 - `python_quick_install_ddl.py` - Loads database
 - `requirements.txt` - Modules needed for install
+- `peak_powerhouse_intall.ps1` - Powershell file for faster installation
+- `peak_powerhouse_intall.sh` - Bash file for faster installation
+
+## The Super Fast Installation Instructions
+1 - Rename `example.env` to `.env`.
+
+2 - Open the .env file and check the host, username, and password. Update them to match your local MySQL settings.
+
+The default settings are:
+- Host: localhost
+- Username: root
+- Password: (empty)
+
+3 - Open terminal in project folder, then run peak_powerhouse_install using the following command:
+
+For Windows:
+
+    .\peak_powerhouse_install.ps1
+
+For MacOS:
+
+    ./peak_powerhouse_install.sh
+
+Note this shell script will create a virtual environment, activate the environment, install modules,
+load ddl to database, and even run the command line application for you!
+If you need to run the application again after initial installation use the command below.
+
+## Run the Application
+
+Run the following command in terminal:
+
+    python peak_cli.py
 
 ## Quick Installation Instructions
 1 - Rename `example.env` to `.env`.
@@ -32,7 +64,6 @@ The default settings are:
 - Host: localhost
 - Username: root
 - Password: (empty)
-- Database: peak_ph_db
 
 3 - Open terminal in project folder, then run python_quick_install_modules.py using the following command:
 
@@ -73,7 +104,7 @@ This will load the database.
 
 Run the following command in terminal:
 
-    python run_python_crud.py
+    python peak_cli.py
 
 
 ## Step-by-Step Installation Instructions
@@ -86,7 +117,6 @@ The default settings are:
 - Host: localhost
 - Username: root
 - Password: (empty)
-- Database: peak_ph_db
 
 3 - Set up virtual environment, run the following code below in terminal. 
 *Make sure you are in the project folder*:
@@ -117,7 +147,7 @@ For MacOS:
 
 Run the following command in terminal:
 
-    python run_python_crud.py
+    python peak_cli.py
 
 
 ## Expected Output
