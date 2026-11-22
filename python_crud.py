@@ -135,12 +135,12 @@ class PeakPowerhouseQueries(object):
     def add_sales_detail(self, transaction_id, product_id, quantity):
         """Add a product to a sale and return the new sales_details_id."""
         sql = "CALL sp_AddSalesDetails(%s, %s, %s, @new_id)"
-        cursor.execute(sql, (transaction_id, product_id, quantity))
+        self.cursor.execute(sql, (transaction_id, product_id, quantity))
         # Drain pending result sets
-        while cursor.nextset():
+        while self.cursor.nextset():
             pass
-        cursor.execute("SELECT @new_id")
-        new_id = cursor.fetchone()[0]
+        self.cursor.execute("SELECT @new_id")
+        new_id = self.cursor.fetchone()[0]
 
         self._commit()
         return 1 if new_id else 0

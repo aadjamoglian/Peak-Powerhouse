@@ -275,11 +275,14 @@ DROP PROCEDURE IF EXISTS sp_AddSalesDetails//
 CREATE PROCEDURE sp_AddSalesDetails(
     IN sales_trans_id INT,
     IN sales_prod_id INT,
-    IN quant INT
+    IN quant INT,
+    OUT sales_details_id INT
 )
 BEGIN
     INSERT INTO `peak_ph_db`.`sales_details` (sales_transaction_id, products_product_id, quantity)
     VALUES(sales_trans_id, sales_prod_id, quant);
+
+    SELECT LAST_INSERT_ID() INTO sales_details_id;
 END //
 DELIMITER ;
 
