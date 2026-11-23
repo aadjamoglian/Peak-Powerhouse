@@ -14,29 +14,36 @@
 [(1, 'Front Desk Associate'), (2, 'General Manager'), (3, 'Assistant Manager'), (4, 'Maintenance Technician'), (5, 'Janitor')]
 
 === Sales ===
-[(1, Decimal('5.50'), 1, 1, 1), (2, Decimal('3.30'), 2, 1, 1), (3, Decimal('3.30'), 3, 1, 1)]
+[(1, Decimal('12.09'), 1, 1, 1), (2, Decimal('14.30'), 2, 1, 1), (3, Decimal('6.59'), 3, 1, 1)]
 
 === Sales Details ===
-[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1)]
+[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1), (4, 2, 1, 2), (5, 2, 3, 1), (6, 3, 2, 2)]
 
 === Products ===
 [(1, 'Energy Drink', 'Super caffeinated sugary power bomb of a drink!', Decimal('4.99'), Decimal('1.75')), (2, 'Pre-Workout Shot', "Dry scooped directly into the customer's mouth.", Decimal('2.99'), Decimal('1.00')), (3, 'Snickers Bar', 'You are not you when you are hungry.', Decimal('2.99'), Decimal('0.99'))]
 
 === More Complex Queries ===
 --- Sales By Location ---
-[(1, '1060 W Alameda Ave, Burbank, CA 91506', Decimal('12.10')), (2, '6150 Laurel Canyon Blvd, North Hollywood, CA 91506', None), (3, '12811 Victory Blvd, Valley Glen, CA 91506', None)]
+[(1, '1060 W Alameda Ave, Burbank, CA 91506', Decimal('32.98')), (2, '6150 Laurel Canyon Blvd, North Hollywood, CA 91506', None), (3, '12811 Victory Blvd, Valley Glen, CA 91506', None)]
 
 === Testing INSERT ===
-New sales_details_id: 9
+New sales_details_id: 7
 Sales details after INSERT:
-[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1), (9, 2, 3, 2)]
+[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1), (4, 2, 1, 2), (5, 2, 3, 1), (6, 3, 2, 2), (7, 3, 1, 1)]
 
 === Testing UPDATE ===
 Rows updated: 1
 Sales details after UPDATE:
-[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1), (9, 2, 3, 5)]
+[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1), (4, 2, 1, 2), (5, 2, 3, 1), (6, 3, 2, 2), (7, 3, 1, 5)]
 
 === Testing DELETE ===
 Rows deleted: 1
 Sales details after DELETE:
-[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1)]
+[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1), (4, 2, 1, 2), (5, 2, 3, 1), (6, 3, 2, 2)]
+
+=== Testing RESET ===
+Database reset successful!
+Sales details after RESET:
+[(1, 1, 1, 1), (2, 1, 2, 1), (3, 1, 3, 1), (4, 2, 1, 2), (5, 2, 3, 1), (6, 3, 2, 2)]
+Sales totals after RESET:
+[(1, Decimal('12.09'), 1, 1, 1), (2, Decimal('14.30'), 2, 1, 1), (3, Decimal('6.59'), 3, 1, 1)]

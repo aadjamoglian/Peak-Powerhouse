@@ -143,7 +143,7 @@ class PeakPowerhouseQueries(object):
         new_id = self.cursor.fetchone()[0]
 
         self._commit()
-        return 1 if new_id else 0
+        return new_id
 
     # Old update sales quantity before stored procedure
     # def update_sales_detail_quantity(self, details_id, new_quantity):
@@ -182,4 +182,13 @@ class PeakPowerhouseQueries(object):
         self._commit()
         return self.cursor.rowcount
 
-    
+    def reset_database(self):
+        """Reset the database to its original state."""
+        self.cursor.execute("CALL sp_ResetPeakPowerhouseDatabase()")
+
+        # Clear any remaining result sets
+        while self.cursor.nextset():
+            pass
+
+        self._commit()
+        return True

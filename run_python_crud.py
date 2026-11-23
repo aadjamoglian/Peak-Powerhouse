@@ -74,5 +74,17 @@ print("Rows deleted:", rows)
 print("Sales details after DELETE:")
 print(q.get_all_sales_details())
 
+# RESET Database Test
+print("\n=== Testing RESET ===")
+
+if q.reset_database():
+    print("Database reset successful!")
+    print("Sales details after RESET:")
+    print(q.get_all_sales_details())
+    print("Sales totals after RESET:")
+    print(q.get_all_sales())
+else:
+    print("Database reset failed.")
+
 cursor.close()
 conn.close()
