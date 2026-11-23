@@ -180,21 +180,18 @@ CREATE TABLE IF NOT EXISTS `peak_ph_db`.`sales_details` (
   `sales_transaction_id` INT NOT NULL,
   `products_product_id` INT NOT NULL,
   `quantity` INT NULL,
+  PRIMARY KEY (`sales_details_id`),
+  UNIQUE KEY `uq_sale_product` (`sales_transaction_id`,`products_product_id`),
   INDEX `fk_sales_has_items_items1_idx` (`products_product_id` ASC) VISIBLE,
   INDEX `fk_sales_has_items_sales1_idx` (`sales_transaction_id` ASC) VISIBLE,
-  PRIMARY KEY (`sales_details_id`, `sales_transaction_id`, `products_product_id`),
   CONSTRAINT `fk_sales_has_items_sales1`
     FOREIGN KEY (`sales_transaction_id`)
     REFERENCES `peak_ph_db`.`sales` (`transaction_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_sales_has_items_items1`
     FOREIGN KEY (`products_product_id`)
     REFERENCES `peak_ph_db`.`products` (`product_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `uq_sale_product` UNIQUE (`sales_transaction_id`,`products_product_id`)
-  )
+    ON DELETE NO ACTION ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 -- Generate all the example data
@@ -257,17 +254,57 @@ VALUES ('Energy Drink', 'Super caffeinated sugary power bomb of a drink!', 4.99,
 -- Table `peak_ph_db`.`sales`
 -- -----------------------------------------------------
 INSERT INTO `peak_ph_db`.`sales` (sale_total, members_member_id, employees_employee_id, locations_location_id)
-VALUES (((SELECT product_price FROM `peak_ph_db`.`products` WHERE product_name = 'Energy Drink') * 1.1025), (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aladdle0@twitter.com'), (SELECT employee_id FROM `peak_ph_db`.`employees` WHERE employee_email = 'nruggiero0@cbc.ca'), (SELECT location_id FROM `peak_ph_db`.`locations` WHERE location_address = '1060 W Alameda Ave, Burbank, CA 91506')),
-(((SELECT product_price FROM `peak_ph_db`.`products` WHERE product_name = 'Pre-Workout Shot') * 1.1025), (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'coscroft1@mapy.cz'), (SELECT employee_id FROM `peak_ph_db`.`employees` WHERE employee_email = 'nruggiero0@cbc.ca'), (SELECT location_id FROM `peak_ph_db`.`locations` WHERE location_address = '1060 W Alameda Ave, Burbank, CA 91506')),
-(((SELECT product_price FROM `peak_ph_db`.`products` WHERE product_name = 'Snickers Bar') * 1.1025), (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aspurr2@deliciousdays.com'), (SELECT employee_id FROM `peak_ph_db`.`employees` WHERE employee_email = 'nruggiero0@cbc.ca'), (SELECT location_id FROM `peak_ph_db`.`locations` WHERE location_address = '1060 W Alameda Ave, Burbank, CA 91506'));
-
+VALUES
+(0, (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aladdle0@twitter.com'),
+    (SELECT employee_id FROM `peak_ph_db`.`employees` WHERE employee_email = 'nruggiero0@cbc.ca'),
+    (SELECT location_id FROM `peak_ph_db`.`locations` WHERE location_address = '1060 W Alameda Ave, Burbank, CA 91506')),
+(0, (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'coscroft1@mapy.cz'),
+    (SELECT employee_id FROM `peak_ph_db`.`employees` WHERE employee_email = 'nruggiero0@cbc.ca'),
+    (SELECT location_id FROM `peak_ph_db`.`locations` WHERE location_address = '1060 W Alameda Ave, Burbank, CA 91506')),
+(0, (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aspurr2@deliciousdays.com'),
+    (SELECT employee_id FROM `peak_ph_db`.`employees` WHERE employee_email = 'nruggiero0@cbc.ca'),
+    (SELECT location_id FROM `peak_ph_db`.`locations` WHERE location_address = '1060 W Alameda Ave, Burbank, CA 91506'));
+    
 -- -----------------------------------------------------
 -- Table `peak_ph_db`.`sales_details`
 -- -----------------------------------------------------
 INSERT INTO `peak_ph_db`.`sales_details` (quantity, sales_transaction_id, products_product_id)
-VALUES (1, 1, (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Energy Drink')),
-(1, 1, (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Pre-Workout Shot')),
-(1, 1, (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Snickers Bar'));
+VALUES
+-- sale 1（Amalia）：Energy Drink x1
+(1, (SELECT transaction_id FROM `peak_ph_db`.`sales`
+     WHERE members_member_id = (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aladdle0@twitter.com')),
+    (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Energy Drink')),
+-- sale 1（Amalia）：Pre-Workout Shot x1
+(1, (SELECT transaction_id FROM `peak_ph_db`.`sales`
+     WHERE members_member_id = (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aladdle0@twitter.com')),
+    (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Pre-Workout Shot')),
+-- sale 1（Amalia）：Snickers Bar x1
+(1, (SELECT transaction_id FROM `peak_ph_db`.`sales`
+     WHERE members_member_id = (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aladdle0@twitter.com')),
+    (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Snickers Bar')),
+-- sale 2（Codee）：Energy Drink x2
+(2, (SELECT transaction_id FROM `peak_ph_db`.`sales`
+     WHERE members_member_id = (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'coscroft1@mapy.cz')),
+    (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Energy Drink')),
+-- sale 2（Codee）：Snickers Bar x1
+(1, (SELECT transaction_id FROM `peak_ph_db`.`sales`
+     WHERE members_member_id = (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'coscroft1@mapy.cz')),
+    (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Snickers Bar')),
+-- sale 3（Alain）：Pre-Workout Shot x2
+(2, (SELECT transaction_id FROM `peak_ph_db`.`sales`
+     WHERE members_member_id = (SELECT member_id FROM `peak_ph_db`.`members` WHERE member_email = 'aspurr2@deliciousdays.com')),
+    (SELECT product_id FROM `peak_ph_db`.`products` WHERE product_name = 'Pre-Workout Shot'));
+    
+UPDATE `peak_ph_db`.`sales` s
+JOIN (
+    SELECT sd.sales_transaction_id,
+           SUM(p.product_price * sd.quantity) * 1.1025 AS total
+    FROM `peak_ph_db`.`sales_details` sd
+    JOIN `peak_ph_db`.`products` p ON sd.products_product_id = p.product_id
+    GROUP BY sd.sales_transaction_id
+) t ON s.transaction_id = t.sales_transaction_id
+SET s.sale_total = t.total;
+
 
 -- Enable Foreign Key Checks
 

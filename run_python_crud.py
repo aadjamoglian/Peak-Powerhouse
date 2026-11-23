@@ -55,7 +55,7 @@ print(q.get_sales_by_location())
 # ---------- CRUD tests on sales_details ----------
 # Test INSERT
 print("\n=== Testing INSERT ===")
-new_id = q.add_sales_detail(2, 3, 2)
+new_id = q.add_sales_detail(3, 1, 1)
 print("New sales_details_id:", new_id)
 print("Sales details after INSERT:")
 print(q.get_all_sales_details())
