@@ -47,15 +47,6 @@ with open("peak_powerhouse_plsql.sql", "r") as sql_file:
 
     )
 
-queries = script.split(";")
-
-for query in queries:
-    query_stripped = query.strip();
-
-    cursor.execute(query_stripped)
-
-conn.commit()
-
 cursor.close()
 conn.close()
 
