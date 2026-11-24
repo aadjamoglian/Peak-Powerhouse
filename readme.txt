@@ -16,6 +16,7 @@ CS340 - Group 3
 
 - `peak_powerhouse_ddl.sql` - Creates the database tables and loads sample data.
 - `peak_ph_db_queries.sql` - Contains the SQL queries.
+- `peak_powerhouse_plsql.sql` - Stored procedures for insert, update, delete, and reset.
 - `python_crud.py` - Contains the Python database class.
 - `run_python_crud.py` - Tests the database operations.
 - `CLI_OUT.txt` - Shows the test results.
@@ -46,7 +47,7 @@ For MacOS:
     ./peak_powerhouse_install.sh
 
 Note this shell script will create a virtual environment, activate the environment, install modules,
-load ddl to database, and even run the command line application for you!
+load ddl and stored procedures to database, and even run the command line application for you!
 If you need to run the application again after initial installation use the command below.
 
 ## Run the Application
