@@ -13,6 +13,7 @@ def print_menu():
     print("3. Update Sales Details")
     print("4. Delete Sales Details")
     print("5. Other Saved Queries")
+    print("6. Reset DB")
     print("0. Exit")
 
 def print_view_table_menu():
@@ -153,6 +154,10 @@ def main():
             else:
                 print("Invalid option...")
 
+        elif choice == "6":
+            print("Reseting database now...")
+            q.reset_database()
+            
         
         elif choice == "0":
             print("Exiting program.")
