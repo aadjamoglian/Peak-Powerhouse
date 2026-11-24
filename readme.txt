@@ -1,5 +1,9 @@
 # Peak-Powerhouse
 
+## Requirements
+- **Python 3.13** (Tested)
+- **MySQL 8.0+**
+
 ## Project Description
 
 Peak Powerhouse is a gym database management system built with MySQL and Python. It stores information about gym locations, employees, members, memberships, products, and sales.
@@ -15,6 +19,7 @@ CS340 - Group 3
 ## Project Files
 
 - `peak_powerhouse_ddl.sql` - Creates the database tables and loads sample data.
+- `peak_powerhouse_plsql.sql` - Contains MySQL stored procedures for RESET and CUD operations.
 - `peak_ph_db_queries.sql` - Contains the SQL queries.
 - `python_crud.py` - Contains the Python database class.
 - `run_python_crud.py` - Tests the database operations.
@@ -22,8 +27,10 @@ CS340 - Group 3
 - `python_quick_install_modules.py` - Installs modules and virtual environment
 - `python_quick_install_ddl.py` - Loads database
 - `requirements.txt` - Modules needed for install
-- `peak_powerhouse_intall.ps1` - Powershell file for faster installation
-- `peak_powerhouse_intall.sh` - Bash file for faster installation
+- `peak_powerhouse_install.ps1` - Powershell file for faster installation
+- `peak_powerhouse_install.sh` - Bash file for faster installation
+- `peak_cli.py` - Interactive command-line application.
+- `example.env` - Example database connection settings.
 
 ## The Super Fast Installation Instructions
 1 - Rename `example.env` to `.env`.
@@ -56,6 +63,7 @@ Run the following command in terminal:
     python peak_cli.py
 
 ## Quick Installation Instructions
+
 1 - Rename `example.env` to `.env`.
 
 2 - Open the .env file and check the host, username, and password. Update them to match your local MySQL settings.
@@ -138,9 +146,11 @@ For MacOS:
 ## Database Setup
 5 - Create a MySQL database named peak_ph_db
 
-6 - Import peak_powerhouse_ddl.sql into the database using MySQL Workbench
+6 - Run `peak_powerhouse_ddl.sql` in MySQL Workbench to create the tables and load sample data.
 
-7 - The database should include sample data for testing
+7 - Run `peak_powerhouse_plsql.sql` in MySQL Workbench to create the CUD and RESET stored procedures.
+
+8 - The database is now ready for testing.
 
 
 ## Run the Application
@@ -149,12 +159,17 @@ Run the following command in terminal:
 
     python peak_cli.py
 
+To run the test script and verify the CUD and RESET operations, use the following command:
+
+    python run_python_crud.py
 
 ## Expected Output
 
 The program prints data from all 8 tables.
 
-It also shows the results of adding, updating, and deleting a record in the sales_details table.
+It demonstrates the PL/SQL stored procedures by adding, updating, and deleting a record in the sales_details table.
+
+It also tests the RESET stored procedure, showing that the database is restored to its original sample state after modifications.
 
 The test output is included in CLI_OUT.txt.
 
